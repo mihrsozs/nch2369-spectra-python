@@ -1,22 +1,42 @@
 
-Implementación en Python del **espectro de diseño sísmico** de la norma chilena **NCh2369:2025**.
+## Implementación en Python del **espectro de diseño sísmico** de la norma chilena **NCh2369:2025**.
 
-Autor: Matías Hernández Rojas  
-Ingeniero Civil Estructural
+**Autor:** MiHR <br>
+**Ingeniero Civil Estructural**
 
 ---
 
 ## Descripción
 
-Este notebook permite generar el **espectro de diseño horizontal** según la normativa chilena NCh2369:2025, considerando:
+Este notebook implementa el cálculo del **espectro de diseño sísmico definido en la norma chilena NCh2369:2025**, permitiendo generar de forma automática los espectros requeridos para análisis modal espectral en estructuras industriales.
 
-- Zona sísmica
-- Tipo de suelo
-- Factor de importancia
-- Factor de modificación de respuesta
-- Amortiguamiento
+El cálculo considera los parámetros fundamentales establecidos por la norma, incluyendo:
 
-El código genera automáticamente el espectro y su gráfico.
+- Zona sísmica  
+- Tipo de suelo  
+- Factor de importancia  
+- Factor de modificación de respuesta (R)  
+- Razón de amortiguamiento  
+
+A partir de estos parámetros, el script calcula:
+
+- **Espectro de referencia**
+- **Espectro de diseño reducido por el factor R**
+- **Espectro de diseño vertical**, incluyendo la estimación del **coeficiente sísmico vertical** según lo indicado en la NCh2369:2025.
+
+Como resultado, el notebook genera:
+
+- **Un único gráfico del espectro de diseño**, que contiene simultáneamente:
+  - Espectro de referencia  
+  - Espectro reducido por R  
+  - Espectro vertical  
+
+- **Archivos `.txt` con los espectros calculados**, incluyendo:
+  - Espectro de referencia  
+  - Espectro reducido (con R)  
+  - Espectro vertical  
+
+Estos archivos se generan en un formato compatible con software de análisis estructural como **SAP2000** o **ETABS**, permitiendo su incorporación directa como **funciones para análisis modal espectral**.
 
 ---
 
@@ -35,6 +55,6 @@ Puedes ejecutar el notebook directamente en Colab:
 ---
 
 ## Librerías utilizadas
-numpy
-matplotlib
-pandas
+- numpy
+- matplotlib
+- pandas
